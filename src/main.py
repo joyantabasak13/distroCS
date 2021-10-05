@@ -6,6 +6,7 @@ from entry_class import Entry
 
 
 # Input Format
+# source https://www.aminer.org/citation
 # #* --- paperTitle
 # #@ --- Authors
 # #t ---- Year
@@ -18,6 +19,7 @@ from entry_class import Entry
 def generate_entry_list(path_data):
     in_file = open(path_data, 'r')
     lines = in_file.readlines()
+    entry_max_limit = 25
     entry_count = 0
     authors = ""
     venue = ""
@@ -50,7 +52,7 @@ def generate_entry_list(path_data):
             venue = line.strip()[2:]
         elif line.strip()[:6] == "#index":
             index = int(line.strip()[6:])
-        if (entry_count > 1000):
+        if entry_count > entry_max_limit:
             print("Entries Complete: {}".format(entry_count))
             break
 
@@ -64,37 +66,44 @@ def write_graph(path_out, g_out):
 
 
 def read_graph(path_in):
-    g_in = nx.Graph()
-    nx.read_adjlist(g_in, path_in)
-    return g_in
+    # g_in = nx.Graph()
+    return nx.read_gexf(path_in)
+    # nx.read_adjlist(g_in, path_in)
+    # return g_in
 
 
 def generate_graph(entries):
     graph_gen = nx.Graph()
     for entry in entries:
-        if len(entry.author_list) > 0:
-            graph_gen.add_nodes_from(entry.author_list)
+        entry.print_entry()
+        if (len(entry.author_list) > 0) and (entry.author_list[0] != ''):
+            for author in entry.author_list:
+                if author:
+                    graph_gen.add_node(author, type="author")
             if entry.title:
-                graph_gen.add_node(entry.title)
+                graph_gen.add_node(entry.title, type="title")
                 for author in entry.author_list:
-                    graph_gen.add_edge(author, entry.venue)
+                    graph_gen.add_edge(author, entry.title)
             if entry.venue:
-                graph_gen.add_node(entry.venue)
+                graph_gen.add_node(entry.venue, type="venue")
                 for author in entry.author_list:
-                    graph_gen.add_edge(author, entry.venue)
-                graph_gen.add_edge(entry.title, entry.venue)
+                    if author:
+                        graph_gen.add_edge(author, entry.venue)
+                if entry.title:
+                    graph_gen.add_edge(entry.title, entry.venue)
             if entry.year:
-                graph_gen.add_node(entry.year)
-                graph_gen.add_edge(entry.title, entry.year)
+                graph_gen.add_node(entry.year, type="year")
+                if entry.title:
+                    graph_gen.add_edge(entry.title, entry.year)
     return graph_gen
 
 
 if __name__ == '__main__':
-    path_d = os.path.abspath("./Data/outputacm.txt")
-    path_graph = os.path.abspath("./Data/graph")
+    path_d = os.path.abspath("../Data/outputacm.txt")
+    path_graph = os.path.abspath("../Data/graph.gexf")
     entry_list = generate_entry_list(path_d)
     graph = generate_graph(entry_list)
     write_graph(path_graph, graph)
-    #graph = read_graph(path_graph)
+    # graph = read_graph(path_graph)
     print("#Edges: {}".format(graph.number_of_edges()))
     print("#Nodes: {}".format(graph.number_of_nodes()))
