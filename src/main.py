@@ -73,7 +73,7 @@ def read_graph(path_in):
 
 
 def generate_graph(entries):
-    graph_gen = nx.Graph()
+    graph_gen = nx.DiGraph()
     for entry in entries:
         entry.print_entry()
         if (len(entry.author_list) > 0) and (entry.author_list[0] != ''):
@@ -84,6 +84,7 @@ def generate_graph(entries):
                 graph_gen.add_node(entry.title, type="title")
                 for author in entry.author_list:
                     graph_gen.add_edge(author, entry.title)
+                    graph_gen.add_edge(entry.title, author)
             if entry.venue:
                 graph_gen.add_node(entry.venue, type="venue")
                 # for author in entry.author_list:
@@ -91,9 +92,11 @@ def generate_graph(entries):
                 #        graph_gen.add_edge(author, entry.venue)
                 if entry.title:
                     graph_gen.add_edge(entry.title, entry.venue)
+                    graph_gen.add_edge(entry.venue, entry.title)
             if entry.year:
                 graph_gen.add_node(entry.year, type="year")
                 if entry.title:
+                    graph_gen.add_edge(entry.year, entry.title)
                     graph_gen.add_edge(entry.title, entry.year)
     return graph_gen
 

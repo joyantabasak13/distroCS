@@ -24,13 +24,19 @@
 
 #* p5
 #@ a2, a3, a4, a5
-#t t2, t1
+#t t1
 #c
 #index5
+
+#* p5
+#@ a2, a3, a4, a5
+#t t2
+#c
+#index6
 
 #* p6
 #@ a6
 #t t2
 #c
-#index6
+#index7
 

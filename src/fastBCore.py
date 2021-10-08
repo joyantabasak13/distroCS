@@ -43,23 +43,21 @@ def bsl(graph, query, metapath):
     S = set()
     x = set()
     x.add(query)
+    count = 1
     while len(x) > 0:
+        print("Metapath Iter: {}".format(count))
         for i in range(len(metapath) - 1):
             y = set()
-            print("x is: {}".format(x))
             for v in x:
-                print("V is: {}".format(v))
                 for u in graph.neighbors(v):
-                    print("U is {}".format(str(u)))
                     if (graph.nodes[v]['type'] == metapath[i]) and (graph.nodes[u]['type'] == metapath[i + 1]):
                         if graph[v][u]['label'] == -1:
                             y.add(str(u))
-                            print("ADDED Neighbour: U is {}".format(str(u)))
                             graph[v][u]['label'] = i
-            print("y is: {}".format(y))
             x = y
-        x.difference(S)
-        S.union(x)
+        count += 1
+        x = x.difference(S)
+        S = S.union(x)
 
     return S
 
@@ -72,4 +70,4 @@ if __name__ == '__main__':
         # initialize grap labels
         nx.set_edge_attributes(graph, values=-1, name='label')
         S = bsl(graph, query, metapath)
-        print("S is \n {}".format(S))
+        print("S is {}".format(S))
