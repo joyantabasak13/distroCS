@@ -47,7 +47,7 @@ def generate_entry_list(path_data):
         elif prefix == "#@":
             authors = line.strip()[2:]
         elif prefix == "#t":
-            year = int(line.strip()[2:])
+            year = line.strip()[2:]
         elif prefix == "#c":
             venue = line.strip()[2:]
         elif line.strip()[:6] == "#index":
@@ -98,8 +98,15 @@ def generate_graph(entries):
     return graph_gen
 
 
+def get_graph():
+    path_graph_r = os.path.abspath("../Data/graph.gexf")
+    graph_r = read_graph(path_graph_r)
+    return graph_r
+
+
 if __name__ == '__main__':
-    path_d = os.path.abspath("../Data/outputacm.txt")
+    #path_d = os.path.abspath("../Data/outputacm.txt")
+    path_d = os.path.abspath("../Data/smol_graph.txt")
     path_graph = os.path.abspath("../Data/graph.gexf")
     entry_list = generate_entry_list(path_d)
     graph = generate_graph(entry_list)
