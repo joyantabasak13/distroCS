@@ -10,7 +10,7 @@ def take_inputs():
     print("#Edges: {}".format(graph.number_of_edges()))
     print("#Nodes: {}".format(graph.number_of_nodes()))
     # input file read
-    input_file_path = os.path.abspath("../Data/query_input.txt")
+    input_file_path = os.path.abspath("../DataSmol/query_input.txt")
     input_file = open(input_file_path, 'r')
     lines = input_file.readlines()
     for line in lines:

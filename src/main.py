@@ -99,15 +99,15 @@ def generate_graph(entries):
 
 
 def get_graph():
-    path_graph_r = os.path.abspath("../Data/graph.gexf")
+    path_graph_r = os.path.abspath("../DataSmol/graph.gexf")
     graph_r = read_graph(path_graph_r)
     return graph_r
 
 
 if __name__ == '__main__':
     #path_d = os.path.abspath("../Data/outputacm.txt")
-    path_d = os.path.abspath("../Data/smol_graph.txt")
-    path_graph = os.path.abspath("../Data/graph.gexf")
+    path_d = os.path.abspath("../DataSmol/smol_graph.txt")
+    path_graph = os.path.abspath("../DataSmol/graph.gexf")
     entry_list = generate_entry_list(path_d)
     graph = generate_graph(entry_list)
     write_graph(path_graph, graph)
