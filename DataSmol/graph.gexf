@@ -86,31 +86,28 @@
     </nodes>
     <edges>
       <edge id="0" source="a1" target=" p1" />
-      <edge id="1" source="a1" target=" v1" />
-      <edge id="2" source="a1" target=" p2" />
-      <edge id="3" source="a1" target=" p3" />
-      <edge id="4" source="a2" target=" p1" />
-      <edge id="5" source="a2" target=" v1" />
-      <edge id="6" source="a2" target=" p3" />
-      <edge id="7" source="a2" target=" p5" />
-      <edge id="8" source=" p1" target=" v1" />
-      <edge id="9" source=" p1" target=" t1" />
-      <edge id="10" source=" v1" target="a3" />
-      <edge id="11" source=" v1" target=" p2" />
-      <edge id="12" source=" t1" target=" p2" />
-      <edge id="13" source=" t1" target=" p3" />
-      <edge id="14" source=" t1" target=" p4" />
-      <edge id="15" source="a3" target=" p2" />
-      <edge id="16" source="a3" target=" p3" />
-      <edge id="17" source="a3" target=" p4" />
-      <edge id="18" source="a3" target=" p5" />
-      <edge id="19" source="a4" target=" p3" />
-      <edge id="20" source="a4" target=" p4" />
-      <edge id="21" source="a4" target=" p5" />
-      <edge id="22" source="a5" target=" p5" />
-      <edge id="23" source=" p5" target=" t2" />
-      <edge id="24" source=" t2" target=" p6" />
-      <edge id="25" source="a6" target=" p6" />
+      <edge id="1" source="a1" target=" p2" />
+      <edge id="2" source="a1" target=" p3" />
+      <edge id="3" source="a2" target=" p1" />
+      <edge id="4" source="a2" target=" p3" />
+      <edge id="5" source="a2" target=" p5" />
+      <edge id="6" source=" p1" target=" v1" />
+      <edge id="7" source=" p1" target=" t1" />
+      <edge id="8" source=" v1" target=" p2" />
+      <edge id="9" source=" t1" target=" p2" />
+      <edge id="10" source=" t1" target=" p3" />
+      <edge id="11" source=" t1" target=" p4" />
+      <edge id="12" source="a3" target=" p2" />
+      <edge id="13" source="a3" target=" p3" />
+      <edge id="14" source="a3" target=" p4" />
+      <edge id="15" source="a3" target=" p5" />
+      <edge id="16" source="a4" target=" p3" />
+      <edge id="17" source="a4" target=" p4" />
+      <edge id="18" source="a4" target=" p5" />
+      <edge id="19" source="a5" target=" p5" />
+      <edge id="20" source=" p5" target=" t2" />
+      <edge id="21" source=" t2" target=" p6" />
+      <edge id="22" source="a6" target=" p6" />
     </edges>
   </graph>
 </gexf>

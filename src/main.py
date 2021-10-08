@@ -86,9 +86,9 @@ def generate_graph(entries):
                     graph_gen.add_edge(author, entry.title)
             if entry.venue:
                 graph_gen.add_node(entry.venue, type="venue")
-                for author in entry.author_list:
-                    if author:
-                        graph_gen.add_edge(author, entry.venue)
+                # for author in entry.author_list:
+                #    if author:
+                #        graph_gen.add_edge(author, entry.venue)
                 if entry.title:
                     graph_gen.add_edge(entry.title, entry.venue)
             if entry.year:
