@@ -2,6 +2,7 @@ import os
 import networkx as nx
 import matplotlib.pyplot as plt
 import main as mn
+import json
 
 
 def take_inputs():
@@ -62,12 +63,66 @@ def bsl(graph, query, metapath):
     return S
 
 
+def clear_labeling(graph):
+    for (n1, n2, d) in graph.edges(data=True):
+        d.clear()
+
+
+def dsl_util(graph, k, root, paths, node, visited, metapath, val, path, counter):
+    visited.add(node)
+    path.append(node)
+
+    if counter >= len(metapath):
+        val = val + 1
+        if root in paths:
+            paths[root].append(path.copy())
+        else:
+            paths[root] = path.copy()
+        path.pop()
+        return val, paths
+    if val >= k:
+        path.pop()
+        return val, paths
+    for neighbour in graph.neighbors(node):
+        if neighbour not in visited:
+            if graph.nodes[neighbour]['type'] == metapath[counter]:
+                val, paths = dsl_util(graph, k, root, paths, neighbour, visited, metapath, val, path, counter + 1)
+    path.pop()
+    return val, paths
+
+
+def dsl(graph, queryNSet, metapath, k_core):
+    low_k_nodes = set()
+    node_paths = dict()
+    for node in queryNSet:
+        visited = set()
+        paths = dict()
+        val, paths = dsl_util(graph, k_core, node, paths, node, visited, metapath, 0, [], 1)
+        if val < k_core:
+            low_k_nodes.add(node)
+        else:
+            if node in node_paths:
+                node_paths[node].append(paths)
+            else:
+                node_paths[node] = paths
+    print("DSL Results")
+    print(low_k_nodes)
+    print(node_paths.keys())
+
+    for key, value in node_paths.items():
+        print(key, value)
+    return low_k_nodes, node_paths
+
+
 if __name__ == '__main__':
-    graph, query, metapath, kcore = take_inputs()
-    nx.draw(graph, with_labels = True)
+    graph, query, metapath, k_core = take_inputs()
+    k_core = 5
+    nx.draw(graph, with_labels=True)
     plt.savefig("sampleGraph.png")
     if query != 0:
-        # initialize grap labels
+        # initialize graph labels
         nx.set_edge_attributes(graph, values=-1, name='label')
         S = bsl(graph, query, metapath)
         print("S is {}".format(S))
+        clear_labeling(graph)
+        low_k_nodes, node_paths = dsl(graph, S, metapath, k_core)
