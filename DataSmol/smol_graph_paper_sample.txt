@@ -1,0 +1,41 @@
+#* p1
+#@ a1, a2
+#t t1
+#c v1
+#index1
+
+#* p2
+#@ a1, a3
+#t t1
+#c v1
+#index2
+
+#* p3
+#@ a1, a2,a3, a4
+#t t1
+#c
+#index3
+
+#* p4
+#@ a3, a4
+#t t1
+#c
+#index4
+
+#* p5
+#@ a2, a3, a4, a5
+#t t1
+#c
+#index5
+
+#* p5
+#@ a2, a3, a4, a5
+#t t2
+#c
+#index6
+
+#* p6
+#@ a6
+#t t2
+#c
+#index7

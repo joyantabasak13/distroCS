@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf version="1.2" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
-  <meta lastmodifieddate="2021-10-30">
+  <meta lastmodifieddate="2021-11-02">
     <creator>NetworkX 2.5.1</creator>
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
@@ -38,22 +38,12 @@
           <attvalue for="0" value="author" />
         </attvalues>
       </node>
-      <node id=" p2" label=" p2">
-        <attvalues>
-          <attvalue for="0" value="title" />
-        </attvalues>
-      </node>
       <node id="a4" label="a4">
         <attvalues>
           <attvalue for="0" value="author" />
         </attvalues>
       </node>
-      <node id=" p3" label=" p3">
-        <attvalues>
-          <attvalue for="0" value="title" />
-        </attvalues>
-      </node>
-      <node id=" p4" label=" p4">
+      <node id=" p2" label=" p2">
         <attvalues>
           <attvalue for="0" value="title" />
         </attvalues>
@@ -63,9 +53,19 @@
           <attvalue for="0" value="author" />
         </attvalues>
       </node>
-      <node id=" p5" label=" p5">
+      <node id="a6" label="a6">
+        <attvalues>
+          <attvalue for="0" value="author" />
+        </attvalues>
+      </node>
+      <node id=" p3" label=" p3">
         <attvalues>
           <attvalue for="0" value="title" />
+        </attvalues>
+      </node>
+      <node id=" v2" label=" v2">
+        <attvalues>
+          <attvalue for="0" value="venue" />
         </attvalues>
       </node>
       <node id=" t2" label=" t2">
@@ -73,66 +73,36 @@
           <attvalue for="0" value="year" />
         </attvalues>
       </node>
-      <node id="a6" label="a6">
-        <attvalues>
-          <attvalue for="0" value="author" />
-        </attvalues>
-      </node>
-      <node id=" p6" label=" p6">
-        <attvalues>
-          <attvalue for="0" value="title" />
-        </attvalues>
-      </node>
     </nodes>
     <edges>
       <edge id="0" source="a1" target=" p1" />
-      <edge id="1" source="a1" target=" p2" />
-      <edge id="2" source="a1" target=" p3" />
-      <edge id="3" source="a2" target=" p1" />
-      <edge id="4" source="a2" target=" p3" />
-      <edge id="5" source="a2" target=" p5" />
-      <edge id="6" source=" p1" target="a1" />
-      <edge id="7" source=" p1" target="a2" />
-      <edge id="8" source=" p1" target=" v1" />
-      <edge id="9" source=" p1" target=" t1" />
-      <edge id="10" source=" v1" target=" p1" />
-      <edge id="11" source=" v1" target=" p2" />
-      <edge id="12" source=" t1" target=" p1" />
-      <edge id="13" source=" t1" target=" p2" />
-      <edge id="14" source=" t1" target=" p3" />
-      <edge id="15" source=" t1" target=" p4" />
-      <edge id="16" source=" t1" target=" p5" />
-      <edge id="17" source="a3" target=" p2" />
-      <edge id="18" source="a3" target=" p3" />
-      <edge id="19" source="a3" target=" p4" />
-      <edge id="20" source="a3" target=" p5" />
-      <edge id="21" source=" p2" target="a1" />
-      <edge id="22" source=" p2" target="a3" />
-      <edge id="23" source=" p2" target=" v1" />
-      <edge id="24" source=" p2" target=" t1" />
-      <edge id="25" source="a4" target=" p3" />
-      <edge id="26" source="a4" target=" p4" />
-      <edge id="27" source="a4" target=" p5" />
-      <edge id="28" source=" p3" target="a1" />
-      <edge id="29" source=" p3" target="a2" />
-      <edge id="30" source=" p3" target="a3" />
-      <edge id="31" source=" p3" target="a4" />
-      <edge id="32" source=" p3" target=" t1" />
-      <edge id="33" source=" p4" target="a3" />
-      <edge id="34" source=" p4" target="a4" />
-      <edge id="35" source=" p4" target=" t1" />
-      <edge id="36" source="a5" target=" p5" />
-      <edge id="37" source=" p5" target="a2" />
-      <edge id="38" source=" p5" target="a3" />
-      <edge id="39" source=" p5" target="a4" />
-      <edge id="40" source=" p5" target="a5" />
-      <edge id="41" source=" p5" target=" t1" />
-      <edge id="42" source=" p5" target=" t2" />
-      <edge id="43" source=" t2" target=" p5" />
-      <edge id="44" source=" t2" target=" p6" />
-      <edge id="45" source="a6" target=" p6" />
-      <edge id="46" source=" p6" target="a6" />
-      <edge id="47" source=" p6" target=" t2" />
+      <edge id="1" source="a1" target=" p3" />
+      <edge id="2" source="a2" target=" p1" />
+      <edge id="3" source="a2" target=" p2" />
+      <edge id="4" source=" p1" target="a1" />
+      <edge id="5" source=" p1" target="a2" />
+      <edge id="6" source=" p1" target=" v1" />
+      <edge id="7" source=" p1" target=" t1" />
+      <edge id="8" source=" v1" target=" p1" />
+      <edge id="9" source=" v1" target=" p2" />
+      <edge id="10" source=" t1" target=" p1" />
+      <edge id="11" source=" t1" target=" p2" />
+      <edge id="12" source="a3" target=" p2" />
+      <edge id="13" source="a4" target=" p2" />
+      <edge id="14" source=" p2" target="a2" />
+      <edge id="15" source=" p2" target="a3" />
+      <edge id="16" source=" p2" target="a4" />
+      <edge id="17" source=" p2" target=" v1" />
+      <edge id="18" source=" p2" target=" t1" />
+      <edge id="19" source="a5" target=" p3" />
+      <edge id="20" source="a6" target=" p3" />
+      <edge id="21" source=" p3" target="a1" />
+      <edge id="22" source=" p3" target="a5" />
+      <edge id="23" source=" p3" target="a6" />
+      <edge id="24" source=" p3" target=" v2" />
+      <edge id="25" source=" p3" target=" t2" />
+      <edge id="26" source=" v2" target=" p3" />
+      <edge id="27" source=" t2" target=" p3" />
     </edges>
   </graph>
 </gexf>
