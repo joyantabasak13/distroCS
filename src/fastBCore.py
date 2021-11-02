@@ -199,3 +199,4 @@ if __name__ == '__main__':
         print("Low K Nodes {}".format(low_k_nodes))
         kcore_vertices = kcore_refinement(graph, low_k_nodes, node_paths, S, metapath, k_core)
         print("Final Candidates: {}".format(kcore_vertices))
+        #final candidates might be disjoint, try bsl type checking for connectivity
